@@ -11,8 +11,8 @@ class MyApp extends StatefulWidget {
   }
 }
 
-//StatelessWidget can't have a state. It has data on it but it can only be changed externally
-//StatefulWidget can have a State and the data can change extarnal and interal.
+//StatelessWidget can't have a state. It has data on it but it can only be changed externally and rerenders  when input data changes
+//StatefulWidget can have a State and the data can change external and internal (internal state). Rerenders  when input data or local state changes
 //Therefore we need two clases, one for the State(ful) and one for the rest.
 //To let know the State belongs to MyApp widget we need to do two things:
 //1. State<MyApp>
@@ -22,8 +22,11 @@ class MyAppState extends State<MyApp> {
   // this variable we created it outside the build, otherwise would run everytime it builds the page
   var questionIndex = 0;
   void answerQuestion() {
-    // we want that after the button is pressed, the new question appears
-    questionIndex = questionIndex + 1;
+    //we need to tell flutter we are changing the state by answering and when it does, it should rerender the widget
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
+    // we want that after the button is pressed, the new question appears so we change the index of the question+1
     print(questionIndex);
   }
 
