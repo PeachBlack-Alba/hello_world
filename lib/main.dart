@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "./question.dart";
+import "./answer.dart";
 
 void main() => runApp(
     MyApp()); // runApp renders the widged we created (calls the build method in our widget). It's a feature from flutter package.
@@ -39,9 +40,9 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     //runApp tell flutter to render something in the screen, therefore we need a build method
     var questions = [
-      "What/'s your favourite color?",
-      "What/'s your favourite city?",
-      "What/'s your favourite club?",
+      "What's your favourite color?",
+      "What's your favourite city?",
+      "What's your favourite club?",
     ];
     return MaterialApp(
       home: Scaffold(
@@ -55,19 +56,9 @@ class MyAppState extends State<MyApp> {
             Question(
               questions[questionIndex],
             ),
-            RaisedButton(
-              child: Text("Answer 1"),
-              onPressed:
-                  answerQuestion, //onPressed takes a function, we call it without parentesis. Point the function instead of executing it. Think about tv example.
-            ),
-            RaisedButton(
-              child: Text("Answer 2"),
-              onPressed: answerQuestion,
-            ),
-            RaisedButton(
-              child: Text("Answer 3"),
-              onPressed: answerQuestion,
-            ),
+            Answer(),
+            Answer(),
+            Answer(),
           ],
         ),
       ),
