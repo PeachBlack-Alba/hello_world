@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "./quiz.dart";
+import "./result.dart";
 
 void main() => runApp(
     MyApp()); // runApp renders the widged we created (calls the build method in our widget). It's a feature from flutter package.
@@ -67,11 +68,12 @@ class MyAppState extends State<MyApp> {
           title: Text("My First App"),
         ),
         body: questionIndex < questions.length
-            ? Quiz()
-            : Center(
-                child: Text(
-                    "This is the district we think might fit your preferences the most"),
-              ),
+            ? Quiz(
+                answerQuestion: answerQuestion,
+                questionIndex: questionIndex,
+                questions: questions,
+              )
+            : Result(),
       ),
     );
   }
