@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
-import "./question.dart";
-import "./answer.dart";
+import "./quiz.dart";
 
 void main() => runApp(
     MyApp()); // runApp renders the widged we created (calls the build method in our widget). It's a feature from flutter package.
@@ -68,19 +67,7 @@ class MyAppState extends State<MyApp> {
           title: Text("My First App"),
         ),
         body: questionIndex < questions.length
-            ? Column(
-                // <Widget>[] tells dart that the list is going to be a list of widgets
-                children: [
-                  Question(
-                    questions[questionIndex]["questionText"],
-                    // ["questionText"] we are selecting that key of the object
-                  ), //the ... avoids a nested list => Question list + map() list, this ... takes the value of map() list and puts in in the existing list
-                  ...(questions[questionIndex]["answers"] as List<String>)
-                      .map((answer) {
-                    return Answer(answerQuestion, answer);
-                  }).toList()
-                ],
-              )
+            ? Quiz()
             : Center(
                 child: Text(
                     "This is the district we think might fit your preferences the most"),
