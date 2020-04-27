@@ -40,9 +40,18 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     //runApp tell flutter to render something in the screen, therefore we need a build method
     var questions = [
-      "What's your favourite color?",
-      "What's your favourite city?",
-      "What's your favourite club?",
+      {
+        "questionText": "What is your fav color?",
+        "answers": ["Black", "Red", "Blue"],
+      },
+      {
+        "questionText": "What is your fav film?",
+        "answers": ["La pantera Rosa", "Spired away", "True romance"],
+      },
+      {
+        "questionText": "What is your fav food?",
+        "answers": ["italian", "turkish", "Spanish"],
+      },
     ];
     return MaterialApp(
       home: Scaffold(
@@ -54,11 +63,13 @@ class MyAppState extends State<MyApp> {
           // <Widget>[] tells dart that the list is going to be a list of widgets
           children: [
             Question(
-              questions[questionIndex],
-            ),
-            Answer(),
-            Answer(),
-            Answer(),
+              questions[questionIndex]["questionText"],
+              // ["questionText"] we are selecting that key of the object
+            ), //the ... avoids a nested list => Question list + map() list, this ... takes the value of map() list and puts in in the existing list
+            ...(questions[questionIndex]["answers"] as List<String>)
+                .map((answer) {
+              return Answer(answerQuestion, answer);
+            }).toList()
           ],
         ),
       ),
