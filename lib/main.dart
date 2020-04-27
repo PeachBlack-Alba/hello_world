@@ -29,49 +29,62 @@ class MyAppState extends State<MyApp> {
 
   void answerQuestion() {
     setState(() {
-      questionIndex = ++questionIndex % 3;
+      questionIndex = questionIndex + 1;
     });
     print(questionIndex);
+    if (questionIndex < questions.length) {
+      print("We have more questions!");
+    } else {
+      print("No more questions!");
+    }
   }
+
+  final questions = const [
+    // const here because this list will not change
+    {
+      "questionText": "What is your fav color?",
+      "answers": ["Black", "Red", "Blue"],
+    },
+    {
+      "questionText": "What is your fav film?",
+      "answers": ["La pantera Rosa", "Spired away", "True romance"],
+    },
+    {
+      "questionText": "What is your fav food?",
+      "answers": ["italian", "turkish", "Spanish"],
+    },
+  ];
 
   @override
   //decorator from DART dependencies that makes code cleaner
   // every widget needs to extend Stateless/full widget
   Widget build(BuildContext context) {
     //runApp tell flutter to render something in the screen, therefore we need a build method
-    var questions = [
-      {
-        "questionText": "What is your fav color?",
-        "answers": ["Black", "Red", "Blue"],
-      },
-      {
-        "questionText": "What is your fav film?",
-        "answers": ["La pantera Rosa", "Spired away", "True romance"],
-      },
-      {
-        "questionText": "What is your fav food?",
-        "answers": ["italian", "turkish", "Spanish"],
-      },
-    ];
+
     return MaterialApp(
       home: Scaffold(
         // scaffold is a widget imported from material.dart that gives a base page design to the app (ctrl + space to check all the possible arguments)
         appBar: AppBar(
           title: Text("My First App"),
         ),
-        body: Column(
-          // <Widget>[] tells dart that the list is going to be a list of widgets
-          children: [
-            Question(
-              questions[questionIndex]["questionText"],
-              // ["questionText"] we are selecting that key of the object
-            ), //the ... avoids a nested list => Question list + map() list, this ... takes the value of map() list and puts in in the existing list
-            ...(questions[questionIndex]["answers"] as List<String>)
-                .map((answer) {
-              return Answer(answerQuestion, answer);
-            }).toList()
-          ],
-        ),
+        body: questionIndex < questions.length
+            ? Column(
+                // <Widget>[] tells dart that the list is going to be a list of widgets
+                children: [
+                  Question(
+                    questions[questionIndex]["questionText"],
+                    // ["questionText"] we are selecting that key of the object
+                  ), //the ... avoids a nested list => Question list + map() list, this ... takes the value of map() list and puts in in the existing list
+                  ...(questions[questionIndex]["answers"] as List<String>)
+                      .map((answer) {
+                    return Answer(answerQuestion, answer);
+                  }).toList()
+                ],
+              )
+            : Center(
+                child: Text(
+                    "This is the district we think might fit your preferences the most"),
+              ),
       ),
     );
   }
