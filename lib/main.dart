@@ -21,12 +21,13 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   // this variable we created it outside the build, otherwise would run everytime it builds the page
   var questionIndex = 0;
+  // we want that after the button is pressed, the new question appears so we change the index of the question+1
+  //we need to tell flutter we are changing the state by answering and when it does, it should rerender the widget
+
   void answerQuestion() {
-    //we need to tell flutter we are changing the state by answering and when it does, it should rerender the widget
     setState(() {
-      questionIndex = questionIndex + 1;
+      questionIndex = ++questionIndex % 3;
     });
-    // we want that after the button is pressed, the new question appears so we change the index of the question+1
     print(questionIndex);
   }
 
