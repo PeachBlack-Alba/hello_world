@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "./question.dart";
 
 void main() => runApp(
     MyApp()); // runApp renders the widged we created (calls the build method in our widget). It's a feature from flutter package.
@@ -17,6 +18,7 @@ class MyApp extends StatefulWidget {
 //To let know the State belongs to MyApp widget we need to do two things:
 //1. State<MyApp>
 //2. State<StatefulWidget> createState()
+//The _ before MyAppState makes the class private, so it can't be modified in other files
 
 class MyAppState extends State<MyApp> {
   // this variable we created it outside the build, otherwise would run everytime it builds the page
@@ -31,7 +33,8 @@ class MyAppState extends State<MyApp> {
     print(questionIndex);
   }
 
-  @override //decorator from DART dependencies that makes code cleaner
+  @override
+  //decorator from DART dependencies that makes code cleaner
   // every widget needs to extend Stateless/full widget
   Widget build(BuildContext context) {
     //runApp tell flutter to render something in the screen, therefore we need a build method
@@ -49,7 +52,7 @@ class MyAppState extends State<MyApp> {
         body: Column(
           // <Widget>[] tells dart that the list is going to be a list of widgets
           children: [
-            Text(
+            Question(
               questions[questionIndex],
             ),
             RaisedButton(
