@@ -13,6 +13,9 @@ class Answer extends StatelessWidget {
       // margin: const EdgeInsets.only(top: 10.0),
       width: double.infinity,
       child: RaisedButton(
+        shape: RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(16.0),
+            side: BorderSide(color: Colors.white)),
         color: Colors.deepPurple,
         textColor: Colors.white,
         child: Text(answerText),
