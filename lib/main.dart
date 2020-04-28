@@ -28,7 +28,7 @@ class MyAppState extends State<MyApp> {
   //We need to create a var to store the score, then in the function we will make the sum of the total score
   //We want that after the button is pressed, the new question appears so we change the index of the question+1
   //We need to tell flutter we are changing the state by answering and when it does, it should rerender the widget
-//The int score we recieve it from quiz.dart () => answerQuestion(answer["score"]
+  //The int score we recieve it from quiz.dart () => answerQuestion(answer["score"]
   void answerQuestion(int score) {
     totalScore = totalScore + score;
     setState(() {
