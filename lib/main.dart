@@ -31,6 +31,7 @@ class MyAppState extends State<MyApp> {
   //The int score we recieve it from quiz.dart () => answerQuestion(answer["score"]
   void answerQuestion(int score) {
     totalScore = totalScore + score;
+    //Next forward the totalscore to the result widget to render different results
     setState(() {
       questionIndex = questionIndex + 1;
     });
@@ -57,9 +58,9 @@ class MyAppState extends State<MyApp> {
       ],
     },
     {
-      "questionText": "What type of cuisine you prefer?",
+      "questionText": "What type of cuisine do you prefer?",
       "answers": [
-        {"text": "Arabic", "score": 4},
+        {"text": "Arab", "score": 4},
         {"text": "Turkish", "score": 3},
         {"text": "Italian", "score": 2},
         {"text": "Asian", "score": 1},
@@ -68,10 +69,10 @@ class MyAppState extends State<MyApp> {
     {
       "questionText": "What kind of building architecture you prefer?",
       "answers": [
-        {"text": "Old and alternative", "score": 4},
+        {"text": "Alternative", "score": 4},
         {"text": "With graffiti", "score": 3},
         {"text": "Sovietic", "score": 2},
-        {"text": "Modernist", "score": 1},
+        {"text": "Modern", "score": 1},
       ],
     },
     {
@@ -103,7 +104,7 @@ class MyAppState extends State<MyApp> {
                 questionIndex: questionIndex,
                 questions: questions,
               )
-            : Result(),
+            : Result(totalScore),
       ),
     );
   }
