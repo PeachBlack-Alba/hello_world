@@ -56,28 +56,28 @@ class MyAppState extends State<MyApp> {
     {
       "questionText": "What type of cuisine you prefer?",
       "answers": [
-        {"Arabic"},
-        {"Turkish"},
-        {"Italian"},
-        {"Asian"},
+        {"text": "Arabic", "score": 4},
+        {"text": "Turkish", "score": 3},
+        {"text": "Italian", "score": 2},
+        {"text": "Asian", "score": 1},
       ],
     },
     {
       "questionText": "What kind of building architecture you prefer?",
       "answers": [
-        {"Old and alternative"},
-        {"With graffiti"},
-        {"Sovietic"},
-        {"Modernist"},
+        {"text": "Old and alternative", "score": 4},
+        {"text": "With graffiti", "score": 3},
+        {"text": "Sovietic", "score": 2},
+        {"text": "Modernist", "score": 1},
       ],
     },
     {
       "questionText": "What is your favourite attraction?",
       "answers": [
-        {"Tempelhof field"},
-        {"Canal"},
-        {"East side gallery"},
-        {"Brandennburg gate"},
+        {"text": "Tempelhof field", "score": 4},
+        {"text": "Canal", "score": 3},
+        {"text": "East side gallery", "score": 2},
+        {"text": "Brandennburg gate", "score": 1},
       ],
     },
   ];
