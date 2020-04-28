@@ -42,16 +42,43 @@ class MyAppState extends State<MyApp> {
   final questions = const [
     // const here because this list will not change
     {
-      "questionText": "What is your fav color?",
-      "answers": ["Black", "Red", "Blue"],
+      "questionText": "What is your idea of a perfect Sunday?",
+      "answers": [
+        {
+          "text": "Gathering with friends in a large field having a picnic",
+          "score": 4
+        },
+        {"text": "Sitting next to the canal whilst eating a pizza", "score": 3},
+        {"text": "Going to a flea market", "score": 2},
+        {"text": "Go to a museum", "score": 1},
+      ],
     },
     {
-      "questionText": "What is your fav film?",
-      "answers": ["La pantera Rosa", "Spired away", "True romance"],
+      "questionText": "What type of cuisine you prefer?",
+      "answers": [
+        {"Arabic"},
+        {"Turkish"},
+        {"Italian"},
+        {"Asian"},
+      ],
     },
     {
-      "questionText": "What is your fav food?",
-      "answers": ["italian", "turkish", "Spanish"],
+      "questionText": "What kind of building architecture you prefer?",
+      "answers": [
+        {"Old and alternative"},
+        {"With graffiti"},
+        {"Sovietic"},
+        {"Modernist"},
+      ],
+    },
+    {
+      "questionText": "What is your favourite attraction?",
+      "answers": [
+        {"Tempelhof field"},
+        {"Canal"},
+        {"East side gallery"},
+        {"Brandennburg gate"},
+      ],
     },
   ];
 
