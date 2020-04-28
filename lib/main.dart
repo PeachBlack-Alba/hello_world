@@ -42,45 +42,53 @@ class MyAppState extends State<MyApp> {
       print("No more questions!");
     }
   }
+//After quiz reset:
+
+  void resetQuiz() {
+    setState(() {
+      questionIndex = 0;
+      totalScore = 0;
+    });
+  } //Then pass it to Result widget
 
   final questions = const [
     // const here because this list will not change
     {
       "questionText": "What is your idea of a perfect Sunday?",
       "answers": [
+        {"text": "Sitting next to the canal whilst eating a pizza", "score": 3},
+        {"text": "Going to a museum", "score": 1},
+        {"text": "Going to a flea market", "score": 2},
         {
           "text": "Gathering with friends in a large field having a picnic",
           "score": 4
         },
-        {"text": "Sitting next to the canal whilst eating a pizza", "score": 3},
-        {"text": "Going to a flea market", "score": 2},
-        {"text": "Go to a museum", "score": 1},
       ],
     },
     {
       "questionText": "What type of cuisine do you prefer?",
       "answers": [
+        {"text": "Asian", "score": 1},
+        {"text": "Italian", "score": 2},
         {"text": "Arab", "score": 4},
         {"text": "Turkish", "score": 3},
-        {"text": "Italian", "score": 2},
-        {"text": "Asian", "score": 1},
       ],
     },
     {
       "questionText": "What kind of building architecture you prefer?",
       "answers": [
         {"text": "Alternative", "score": 4},
+        {"text": "Modern", "score": 1},
         {"text": "With graffiti", "score": 3},
         {"text": "Sovietic", "score": 2},
-        {"text": "Modern", "score": 1},
       ],
     },
     {
       "questionText": "What is your favourite attraction?",
       "answers": [
+        {"text": "East side gallery", "score": 2},
         {"text": "Tempelhof field", "score": 4},
         {"text": "Canal", "score": 3},
-        {"text": "East side gallery", "score": 2},
         {"text": "Brandennburg gate", "score": 1},
       ],
     },
@@ -91,12 +99,18 @@ class MyAppState extends State<MyApp> {
   // every widget needs to extend Stateless/full widget
   Widget build(BuildContext context) {
     //runApp tell flutter to render something in the screen, therefore we need a build method
-
     return MaterialApp(
+      debugShowCheckedModeBanner: false, //Remove debug
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.deepPurple,
+        accentColor: Colors.deepPurpleAccent,
+      ),
+
       home: Scaffold(
         // scaffold is a widget imported from material.dart that gives a base page design to the app (ctrl + space to check all the possible arguments)
         appBar: AppBar(
-          title: Text("My First App"),
+          title: Text("District Finder"),
         ),
         body: questionIndex < questions.length
             ? Quiz(
@@ -104,7 +118,7 @@ class MyAppState extends State<MyApp> {
                 questionIndex: questionIndex,
                 questions: questions,
               )
-            : Result(totalScore),
+            : Result(totalScore, resetQuiz),
       ),
     );
   }

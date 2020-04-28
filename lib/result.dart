@@ -2,10 +2,10 @@ import "package:flutter/material.dart";
 
 class Result extends StatelessWidget {
   final int resultScore;
-
+  final Function resetFunction;
   //Constructor
   //Positional argument, but we could have used also a named argument {}
-  Result(this.resultScore);
+  Result(this.resultScore, this.resetFunction);
 
   String get resultPhrase {
     String resultText;
@@ -30,9 +30,17 @@ class Result extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.all(40),
-      child: Text(resultPhrase,
-          style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.left),
+      child: Column(
+        children: <Widget>[
+          Text(resultPhrase,
+              style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.left),
+          FlatButton(
+            child: Text("Try again!"),
+            onPressed: resetFunction,
+          ),
+        ],
+      ),
     );
   }
 }
