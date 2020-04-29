@@ -12,10 +12,10 @@ class Result extends StatelessWidget {
     if (resultScore <= 6) {
       resultText =
           "The district we think might fit your preferences the most is: Mitte";
-    } else if (resultScore <= 9) {
+    } else if (resultScore <= 11) {
       resultText =
           "The district we think might fit your preferences the most is: Friedrichshain";
-    } else if (resultScore <= 12) {
+    } else if (resultScore <= 18) {
       resultText =
           "The district we think might fit your preferences the most is: Kreuzberg";
     } else {

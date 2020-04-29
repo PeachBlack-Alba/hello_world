@@ -93,6 +93,27 @@ class MyAppState extends State<MyApp> {
         {"text": "Brandennburg gate", "score": 1},
       ],
     },
+    {
+      "questionText": "What do you prefer?",
+      "answers": [
+        {"text": "Eat the best kebab in Berlin", "score": 3},
+        {"text": "Visit WWII sites", "score": 1},
+        {"text": "Go to a hidden swimming pool", "score": 2},
+        {
+          "text": "Go to a top roof terrace to enjoy Berlin's views",
+          "score": 4
+        },
+      ],
+    },
+    {
+      "questionText": "When it comes to clothes shopping, what do you prefer?",
+      "answers": [
+        {"text": "Fashion stores", "score": 1},
+        {"text": "Boutiques", "score": 2},
+        {"text": "Cheap second hand shops", "score": 4},
+        {"text": "Hipster second hand shops", "score": 3},
+      ],
+    },
   ];
 
   @override
